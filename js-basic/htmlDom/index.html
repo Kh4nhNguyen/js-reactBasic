@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="headingID">HTML DOM</h1>
+    <h1 class="headingClass">HTML DOM</h1>
+    <h1 class="headingClass">HTML DOM</h1>
+    <div class="box box-2" contenteditable="">
+        <h1 title="Heading">js</h1>
+    </div>
+    <!-- contenteditable the chinh sua noi dung -->
+
+    <!-- <h1 onclick="console.log('Mess...')">Dom events</h1> -->
+    <h1 onclick="console.log(this.innerText)">
+        <span onclick="console.log(this)">Dom events --- Attribute events</span>
+    </h1><!-- this === Lay ra ca doan ma <h1 nay -->
+    
+    <!-- DOM event -->
+    <h2>
+        <span>Dom event 1--- Assign event using the element node</span>
+    </h2>
+    <h2>
+        <span>Dom event 2--- Assign event using the element node</span>
+    </h2>
+    <h2>
+        <span>Dom event 3--- Assign event using the element node</span>
+    </h2>
+    <!-- Assign event using the element node === gắn sự kiện qua element node -->
+
+    <input type="text">
+    <input type="checkbox">
+
+    <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <br/>
+    <a href="https://f8.edu.vn">
+        Hoc lap trinh
+    </a>
+    <br/>
+    <a href="https://google.com">
+        Tim kiem
+    </a>
+
+    <div>
+        DIV 
+
+        <button>Click me!</button>
+    </div><br/>
+
+    <button id="btn">event listener</button>
+</body>
+
+<script src="main.js"></script>
+
+</html>

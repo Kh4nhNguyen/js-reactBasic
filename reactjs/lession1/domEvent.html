@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // const Form = {
+        //     Input(){
+        //         return <input/>
+        //     },
+        //     CheckBox(){
+        //         return <input type = 'checkbox'/>
+        //     }
+
+        // }
+
+        function Button({ title, href, onClick }) {
+            let Component = 'button'
+            const props = {}
+
+            if (href) {
+                Component = 'a'
+                props.href = href
+            }
+            if (onClick) {
+                props.onClick = onClick
+            }/**props.onClick = onClick
+                gán thêm 1 methods tên là onClick vào props với 
+                giá trị bằng giá trị onClick truyền vào (bên phải)
+            */
+            return (
+                <Component
+                    //{...props} === onClick = {onClick}
+                    {...props}
+                >{title}</Component>
+            )
+        }//Tham số nhận về từ func App
+        function App() {
+
+            //
+            // const type = 'Input'
+            // const Component = Form[type] thay thế 1 biến thay cho thẻ trong HTML
+            //Khi goị chỉ cần truyền <Component /> vào 
+
+            return (
+                <div>
+                    <Button
+                        title="Click me!"
+                        href="https://fullstack.edu.vn/"
+                        onClick={() => console.log(Math.random())}
+                    />
+                </div>
+            )
+        }
+        //index.js
+        //ReactDOM.render(<App />, document.getElementById('root'))
+
+        //Props trong JSX
+        //Sử dụng Spread/Rest props
+
+        function Input({label, ...inputProps }) //...inputProps rest trong es6
+        {
+            console.log(inputProps);
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps} />
+                </div>
+                //{...inputProps} giải vào thì dùng toán tử Spread
+            )
+        }
+
+        function App2() {
+            return (
+                <div id="wrapper">
+                    <Input
+                        label="Full name"
+                        type="text"
+                        placeholder="Enter name..."
+                        title="Day la input"
+                    />
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App2 />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

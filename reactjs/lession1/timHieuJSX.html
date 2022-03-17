@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const courses = [
+            {
+                name: 'html, css'
+            },
+            {
+                name: 'responsive web design'
+            },
+            {
+                name: 'reactjs'
+            }
+        ]
+        const ulReact = <ul>
+            {courses.map((e, key) => {
+                return <li key={key}>{e.name}</li>
+            })}
+        </ul>
+
+        //ReactDOM.render(ulReact, document.getElementById('root'))
+
+        const jsx = (
+            <React.Fragment>
+                <hl>Heading 1</hl>
+                <h2>Heading 2</h2>
+            </React.Fragment>//Fragment tác dụng bao đóng thay div
+        )
+
+        //ReactDOM.render(jsx, document.getElementById('root'))
+
+        //React element types
+        function Header(){
+            return <div className="header">Header</div>
+        }
+
+        const app = (
+            <div className="wrapper">
+                <Header/>
+                <div className="content">Content</div>
+                <div className="footer">Footer</div>
+            </div>
+        )
+        ReactDOM.render(app, document.getElementById('app'))
+
+        //Post item
+
+        function Item(){
+            return(
+                <div>
+                    <img src="" alt=""/>
+                    <h2>C#</h2>
+                    <p>Giới thiệu về C#</p>
+                    <p>Nội dung</p>
+                </div>
+            )
+        }
+
+        const app2 = (
+            <div>
+                <Item/>
+                <Item/>
+                <Item/>
+            </div>
+        )
+
+        ReactDOM.render(app2, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

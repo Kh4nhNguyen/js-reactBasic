@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //data
+        var courses = [
+            {
+                "id": 13,
+                "title": "Xây Dựng Website với ReactJS",
+                "slug": "reactjs",
+                "description": "Khóa học ReactJS từ cơ bản tới nâng cao, kết quả của khóa học này là bạn có thể làm hầu hết các dự án thường gặp với ReactJS. Cuối khóa học này bạn sẽ sở hữu một dự án giống Tiktok.com, bạn có thể tự tin đi xin việc khi nắm chắc các kiến thức được chia sẻ trong khóa học này.",
+                "image": "courses/13/13.png",
+                "icon": "courses/13/6200af9262b30.png",
+                "video_type": "youtube",
+                "video": "x0fSBAgBrOQ",
+                "old_price": 0,
+                "price": 0,
+                "pre_order_price": 0,
+                "students_count": 46536,
+                "is_pro": false,
+                "is_selling": false,
+                "published_at": "2020-02-10T14:23:13.000000Z",
+                "is_registered": true,
+                "user_progress": 27,
+                "last_completed_at": "2022-03-16 09:07:17",
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/13/13.png",
+                "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/13/6200af9262b30.png",
+                "video_url": "https://www.youtube.com/watch?v=x0fSBAgBrOQ",
+                "is_coming_soon": false,
+                "is_pre_order": false,
+                "is_published": true
+            },
+            {
+                "id": 1,
+                "title": "Lập Trình JavaScript Cơ Bản",
+                "slug": "javascript-co-ban",
+                "description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+                "image": "courses/1.png",
+                "icon": "courses/1/6200ad9d8a2d8.png",
+                "video_type": "youtube",
+                "video": "0SJE9dYdpps",
+                "old_price": 0,
+                "price": 0,
+                "pre_order_price": 0,
+                "students_count": 145961,
+                "is_pro": false,
+                "is_selling": false,
+                "published_at": "2020-02-10T14:23:13.000000Z",
+                "is_registered": true,
+                "user_progress": 73,
+                "last_completed_at": "2022-03-16 04:46:01",
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/1.png",
+                "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/1/6200ad9d8a2d8.png",
+                "video_url": "https://www.youtube.com/watch?v=0SJE9dYdpps",
+                "is_coming_soon": false,
+                "is_pre_order": false,
+                "is_published": true
+            },
+            {
+                "id": 12,
+                "title": "Lập Trình JavaScript Nâng Cao",
+                "slug": "javascript-nang-cao",
+                "description": "Hiểu sâu hơn về cách Javascript hoạt động, tìm hiểu về IIFE, closure, reference types, this keyword, bind, call, apply, prototype, ...",
+                "image": "courses/12.png",
+                "icon": "courses/12/6200af2620118.png",
+                "video_type": "youtube",
+                "video": "MGhw6XliFgo",
+                "old_price": 0,
+                "price": 0,
+                "pre_order_price": 0,
+                "students_count": 19958,
+                "is_pro": false,
+                "is_selling": false,
+                "published_at": "2020-02-10T14:23:13.000000Z",
+                "is_registered": true,
+                "user_progress": 0,
+                "last_completed_at": null,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/12.png",
+                "icon_url": "https://files.fullstack.edu.vn/f8-prod/courses/12/6200af2620118.png",
+                "video_url": "https://www.youtube.com/watch?v=MGhw6XliFgo",
+                "is_coming_soon": false,
+                "is_pre_order": false,
+                "is_published": true
+            }
+        ]
+
+        //item
+
+        //UI component chỉ hiển thị thôi.không nên cho xử lý logic bên trong
+        function Item({couser ,onClick}) {
+
+            return (
+                <div>
+                     <h1 
+                        //onClick = {()=>{
+                        //     alert('Error')}}
+                        onClick = {()=>onClick(couser.title)}
+                    >{couser.title}</h1>
+                    <img width="100%" src={couser.image_url} alt="" />
+                    <p>{couser.description}</p>
+                    <p>{couser.students_count}</p>
+                </div>
+            )
+        }
+        //app,js
+
+        const handleClick = (couser)=>{
+            console.log(couser);
+        }
+        function App() {
+            return (
+                <React.Fragment>
+                    {courses.map((couser, key) => {
+                        return (
+                            <Item
+                                key={key}
+                                couser = {couser}
+                                onClick = {handleClick}
+                            />
+                        )
+                    })}
+                </React.Fragment>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

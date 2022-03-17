@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactjs</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+    <h1>Add React To Website</h1>
+    <div id="root"></div>
+    <!-- <ul>
+        <li>nodejs</li>
+        <li>reactjs</li>
+    </ul> -->
+    <script>
+        //React.createElement(type,props, children, n)
+        const h1react = React.createElement('h1', {
+            title: 'heading',
+            className: 'headingClass',
+
+        }, 'Hello guys!')
+        console.log(h1react);
+
+        //bang Dom
+        // const ulDom = document.createElement('ul');
+
+        // const liDom1 = document.createElement('li');
+        // liDom1.innerText = 'reactjs';
+
+        // const liDom2 = document.createElement('li');
+        // liDom2.innerText = 'nodejs';
+
+        // ulDom.appendChild(liDom1);
+        // ulDom.appendChild(liDom2);
+
+        //document.body.appendChild(ulDom)
+
+        //bang react
+        const ulReact = React.createElement(
+            "ul",
+            null,
+            React.createElement('li',null,'reactjs'),
+            React.createElement('li',null,'nodejs')//react tạo mới gồm thẻ li không có thuộc tính và giá trị === nodejs
+        )
+        console.log("ulReact",ulReact);
+
+        //React-Dom
+        const divReact = React.createElement(
+            'div',
+            {
+                className:'post-item'
+            },
+            React.createElement('h2',{title:'Hoc React'},'Hoc Reactjs'),
+            React.createElement('p',null,'React tu co ban den nang cao'),
+        )
+        console.log("divReact: ",divReact);
+        const root = document.getElementById('root');
+        
+        //React-DOM -> renderUI
+        ReactDOM.render(divReact,root)
+
+        const h1React = React.createElement(
+            'h1',
+            {
+                title:'Hello',
+                className:'heading'
+            },
+            'Hello Guys'
+        )
+        ReactDOM.render(h1React,root)
+
+        
+    </script>
+</body>
+
+</html>
